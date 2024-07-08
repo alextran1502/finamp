@@ -301,76 +301,78 @@ class Finamp extends StatelessWidget {
           valueListenable: LocaleHelper.localeListener,
           builder: (_, __, ___) {
             return ValueListenableBuilder<Box<ThemeMode>>(
-                valueListenable: ThemeModeHelper.themeModeListener,
-                builder: (_, box, __) {
-                  return MaterialApp(
-                    title: "Finamp",
-                    routes: {
-                      SplashScreen.routeName: (context) => const SplashScreen(),
-                      UserSelector.routeName: (context) => const UserSelector(),
-                      ViewSelector.routeName: (context) => const ViewSelector(),
-                      MusicScreen.routeName: (context) => const MusicScreen(),
-                      AlbumScreen.routeName: (context) => const AlbumScreen(),
-                      ArtistScreen.routeName: (context) => const ArtistScreen(),
-                      AddToPlaylistScreen.routeName: (context) =>
-                          const AddToPlaylistScreen(),
-                      PlayerScreen.routeName: (context) => const PlayerScreen(),
-                      DownloadsScreen.routeName: (context) =>
-                          const DownloadsScreen(),
-                      DownloadsErrorScreen.routeName: (context) =>
-                          const DownloadsErrorScreen(),
-                      LogsScreen.routeName: (context) => const LogsScreen(),
-                      SettingsScreen.routeName: (context) =>
-                          const SettingsScreen(),
-                      TranscodingSettingsScreen.routeName: (context) =>
-                          const TranscodingSettingsScreen(),
-                      DownloadsSettingsScreen.routeName: (context) =>
-                          const DownloadsSettingsScreen(),
-                      AddDownloadLocationScreen.routeName: (context) =>
-                          const AddDownloadLocationScreen(),
-                      AudioServiceSettingsScreen.routeName: (context) =>
-                          const AudioServiceSettingsScreen(),
-                      InteractionSettingsScreen.routeName: (context) =>
-                          const InteractionSettingsScreen(),
-                      TabsSettingsScreen.routeName: (context) =>
-                          const TabsSettingsScreen(),
-                      LayoutSettingsScreen.routeName: (context) =>
-                          const LayoutSettingsScreen(),
-                      LanguageSelectionScreen.routeName: (context) =>
-                          const LanguageSelectionScreen(),
-                    },
-                    initialRoute: SplashScreen.routeName,
-                    theme: ThemeData(
-                      brightness: Brightness.light,
-                      colorScheme: lightColorScheme,
-                      appBarTheme: const AppBarTheme(
-                        systemOverlayStyle: SystemUiOverlayStyle(
-                          statusBarBrightness: Brightness.light,
-                          statusBarIconBrightness: Brightness.dark,
-                        ),
+              valueListenable: ThemeModeHelper.themeModeListener,
+              builder: (_, box, __) {
+                return MaterialApp(
+                  title: "Finamp",
+                  routes: {
+                    SplashScreen.routeName: (context) => const SplashScreen(),
+                    UserSelector.routeName: (context) => const UserSelector(),
+                    ViewSelector.routeName: (context) => const ViewSelector(),
+                    MusicScreen.routeName: (context) => const MusicScreen(),
+                    AlbumScreen.routeName: (context) => const AlbumScreen(),
+                    ArtistScreen.routeName: (context) => const ArtistScreen(),
+                    AddToPlaylistScreen.routeName: (context) =>
+                        const AddToPlaylistScreen(),
+                    PlayerScreen.routeName: (context) => const PlayerScreen(),
+                    DownloadsScreen.routeName: (context) =>
+                        const DownloadsScreen(),
+                    DownloadsErrorScreen.routeName: (context) =>
+                        const DownloadsErrorScreen(),
+                    LogsScreen.routeName: (context) => const LogsScreen(),
+                    SettingsScreen.routeName: (context) =>
+                        const SettingsScreen(),
+                    TranscodingSettingsScreen.routeName: (context) =>
+                        const TranscodingSettingsScreen(),
+                    DownloadsSettingsScreen.routeName: (context) =>
+                        const DownloadsSettingsScreen(),
+                    AddDownloadLocationScreen.routeName: (context) =>
+                        const AddDownloadLocationScreen(),
+                    AudioServiceSettingsScreen.routeName: (context) =>
+                        const AudioServiceSettingsScreen(),
+                    InteractionSettingsScreen.routeName: (context) =>
+                        const InteractionSettingsScreen(),
+                    TabsSettingsScreen.routeName: (context) =>
+                        const TabsSettingsScreen(),
+                    LayoutSettingsScreen.routeName: (context) =>
+                        const LayoutSettingsScreen(),
+                    LanguageSelectionScreen.routeName: (context) =>
+                        const LanguageSelectionScreen(),
+                  },
+                  initialRoute: SplashScreen.routeName,
+                  theme: ThemeData(
+                    brightness: Brightness.light,
+                    colorScheme: lightColorScheme,
+                    appBarTheme: const AppBarTheme(
+                      systemOverlayStyle: SystemUiOverlayStyle(
+                        statusBarBrightness: Brightness.light,
+                        statusBarIconBrightness: Brightness.dark,
                       ),
                     ),
-                    darkTheme: ThemeData(
-                      brightness: Brightness.dark,
-                      colorScheme: darkColorScheme,
-                    ),
-                    themeMode: box.get("ThemeMode"),
-                    localizationsDelegates: const [
-                      AppLocalizations.delegate,
-                      GlobalMaterialLocalizations.delegate,
-                      GlobalWidgetsLocalizations.delegate,
-                      GlobalCupertinoLocalizations.delegate,
-                    ],
-                    supportedLocales: AppLocalizations.supportedLocales,
-                    // We awkwardly put English as the first supported locale so
-                    // that basicLocaleListResolution falls back to it instead of
-                    // the first language in supportedLocales (Arabic as of writing)
-                    localeListResolutionCallback: (locales, supportedLocales) =>
-                        basicLocaleListResolution(locales,
-                            [const Locale("en")].followedBy(supportedLocales)),
-                    locale: LocaleHelper.locale,
-                  );
-                },
+                    fontFamily: 'BeVietnamPro',
+                  ),
+                  darkTheme: ThemeData(
+                    brightness: Brightness.dark,
+                    colorScheme: darkColorScheme,
+                    fontFamily: 'BeVietnamPro',
+                  ),
+                  themeMode: box.get("ThemeMode"),
+                  localizationsDelegates: const [
+                    AppLocalizations.delegate,
+                    GlobalMaterialLocalizations.delegate,
+                    GlobalWidgetsLocalizations.delegate,
+                    GlobalCupertinoLocalizations.delegate,
+                  ],
+                  supportedLocales: AppLocalizations.supportedLocales,
+                  // We awkwardly put English as the first supported locale so
+                  // that basicLocaleListResolution falls back to it instead of
+                  // the first language in supportedLocales (Arabic as of writing)
+                  localeListResolutionCallback: (locales, supportedLocales) =>
+                      basicLocaleListResolution(locales,
+                          [const Locale("en")].followedBy(supportedLocales)),
+                  locale: LocaleHelper.locale,
+                );
+              },
             );
           },
         ),
